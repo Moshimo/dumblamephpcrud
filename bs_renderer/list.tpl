@@ -12,85 +12,89 @@
 
     <div class="container-fluid">
         <div class="col-md-10 offset-md-1">
-            <table class="table table-hover">
-            <?php
-            echo "<tr>";
-
-            foreach ($this->data["entity"]->data as $fieldKey => $field) {
-                if ($field["showInList"])
-                {
-                    echo "<th>" . $field["label"] . "</th>";
-                }
-            }
-
-            echo "<th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th>";
-            echo "</tr>";
-            foreach($this->data["rows"] as $rowKey => $row)
-            {
+            <?php if (count($this->data["rows"]) < 1): ?>
+                Empty table
+            <?php else: ?>
+                <table class="table table-hover">
+                <?php
                 echo "<tr>";
-                foreach($row as $colKey => $col)
-                {
-                    if ($col["field"]["type"] == DataType::KEY)
-                        $queryString[$colKey] = $col["value"];
-                    else if ($col["field"]["type"] == DataType::KEYFK)
-                    {
-                        foreach($col["value"]["fk_ids"] as $key => $fkId)
-                            $queryString[$key] = $fkId;
-                    }
 
-                    if (!$col["field"]["showInList"] == true)
+                foreach ($this->data["entity"]->data as $fieldKey => $field) {
+                    if ($field["showInList"])
                     {
-                        continue;
+                        echo "<th>" . $field["label"] . "</th>";
                     }
-                    echo "<td>";
-                    if (isset($col["value"]))
-                    {
-                        switch ($col["field"]["type"])
-                        {
-                            case DataType::BOOL:
-                                $this->PrintBool($col["value"]);
-                            break;
-                            case DataType::INT:
-                                $this->PrintString($col["value"]);
-                            break;
-                            case DataType::STRING:
-                                $this->PrintString($col["value"]);
-                            break;
-                            case DataType::DATETIME:
-                                $this->PrintDateTime($col["value"]);
-                            break;
-                            case DataType::TEXT:
-                                $this->PrintText($col["value"]);
-                            break;
-                            case DataType::KEYFK:
-                            case DataType::FK:
-                                $this->PrintString($col["value"]["fk_obj"]->{$col["value"]["fk_label"]});
-                            break;
-                            default:
-                            break;
-                        }
-                    }
-                    echo "</td>";
                 }
-                $queryString["table"] = $this->data["entity"]->table;
-                $queryString["action"] = "view";
-                echo "<td><a class=\"btn btn-outline-primary\" href=\"?" . http_build_query($queryString) . "\">View</a></td>";
-                $queryString["action"] = "duplicate";
-                echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Duplicate</a></td>";
-                $queryString["action"] = "edit";
-                echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Edit</a></td>";
-                $queryString["action"] = "delete";
-                echo "<td><a class=\"btn btn-outline-danger\" href=\"?" . http_build_query($queryString) . "\">Delete</a></td>";
-                echo "</tr>";
-            }
-            ?>
-            </table>
 
-            <?php
-            echo "<a class=\"btn btn-outline-primary\" href=\"?action=new&table=".$this->data["entity"]->table."\">New</a>";
-            echo "<br/><br/>";
-            echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Back</a>";
-            ?>
+                echo "<th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th>";
+                echo "</tr>";
+                foreach($this->data["rows"] as $rowKey => $row)
+                {
+                    echo "<tr>";
+                    foreach($row as $colKey => $col)
+                    {
+                        if ($col["field"]["type"] == DataType::KEY)
+                            $queryString[$colKey] = $col["value"];
+                        else if ($col["field"]["type"] == DataType::KEYFK)
+                        {
+                            foreach($col["value"]["fk_ids"] as $key => $fkId)
+                                $queryString[$key] = $fkId;
+                        }
+
+                        if (!$col["field"]["showInList"] == true)
+                        {
+                            continue;
+                        }
+                        echo "<td>";
+                        if (isset($col["value"]))
+                        {
+                            switch ($col["field"]["type"])
+                            {
+                                case DataType::BOOL:
+                                    $this->PrintBool($col["value"]);
+                                break;
+                                case DataType::INT:
+                                    $this->PrintString($col["value"]);
+                                break;
+                                case DataType::STRING:
+                                    $this->PrintString($col["value"]);
+                                break;
+                                case DataType::DATETIME:
+                                    $this->PrintDateTime($col["value"]);
+                                break;
+                                case DataType::TEXT:
+                                    $this->PrintText($col["value"]);
+                                break;
+                                case DataType::KEYFK:
+                                case DataType::FK:
+                                    $this->PrintString($col["value"]["fk_obj"]->{$col["value"]["fk_label"]});
+                                break;
+                                default:
+                                break;
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    $queryString["table"] = $this->data["entity"]->table;
+                    $queryString["action"] = "view";
+                    echo "<td><a class=\"btn btn-outline-primary\" href=\"?" . http_build_query($queryString) . "\">View</a></td>";
+                    $queryString["action"] = "duplicate";
+                    echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Duplicate</a></td>";
+                    $queryString["action"] = "edit";
+                    echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Edit</a></td>";
+                    $queryString["action"] = "delete";
+                    echo "<td><a class=\"btn btn-outline-danger\" href=\"?" . http_build_query($queryString) . "\">Delete</a></td>";
+                    echo "</tr>";
+                }
+                ?>
+                </table>
+
+                <?php
+                echo "<a class=\"btn btn-outline-primary\" href=\"?action=new&table=".$this->data["entity"]->table."\">New</a>";
+                echo "<br/><br/>";
+                echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Back</a>";
+                ?>
+            <?php endif; ?>
         </div>
   </div>
 

@@ -10,12 +10,16 @@
 
 <body>
 
-  <div class="row">
-    <div class="col-md2 offset-md-1">
+  <div class="container-fluid">
+    <div class="col-md-10 offset-md-1">
       <div class="list-group">
-        <?php foreach ($this->items as $item): ?>
-          <a class="list-group-item list-group-item-action" href="?action=list&table=<?=  $item->table ?>"><?= $item->title ?></a>
-        <?php endforeach ?>
+        <?php if(count($this->items) < 1): ?>
+          No entities
+        <?php else: ?>
+          <?php foreach ($this->items as $item): ?>
+            <a class="list-group-item list-group-item-action" href="?action=list&table=<?=  $item->table ?>"><?= $item->title ?></a>
+          <?php endforeach ?>
+        <?php endif; ?>
       </div>
     </div>
   </div>
