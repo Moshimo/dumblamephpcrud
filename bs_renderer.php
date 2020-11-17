@@ -211,28 +211,28 @@ class BootstrapRenderer extends Renderer
 
     function OnDeleteEntity($data, $result)
     {
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        header("location: ?action=list&table=" . $data->table);
     }
 
     function OnAddEntity($data, $result)
     {
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        header("location: ?action=list&table=" . $data->table);
     }
 
     function OnUpdateEntity($data, $result)
     {
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        header("location: ?action=list&table=" . $data->table);
     }
 
     function OnEntityNotFound($data)
     {
         echo "'" . $data->table . "' Not Found<br>";
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
     }
 
     function OnActionNotFound($data)
     {
         echo "No '" . $data->action . "' Option<br>";
-        echo "<a href=\"?\">Indietro</a>";
+        echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Indietro</a>";
     }
 }
