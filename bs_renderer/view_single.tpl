@@ -52,15 +52,15 @@
                     echo "<br>";
                     $queryString["table"] = $this->data["entity"]->table;
                     $queryString["action"] = "new";
-                    echo " <a class=\"btn btn-outline-primary\" href=\"?" . http_build_query($queryString) . "\">Nuovo</a> ";
+                    echo " <a class=\"btn btn-outline-primary\" href=\"?" . http_build_query($queryString) . "\">New</a> ";
                     $queryString["action"] = "duplicate";
-                    echo " <a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Duplica</a> ";
+                    echo " <a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Duplicate</a> ";
                     $queryString["action"] = "edit";
-                    echo " <a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Modifica</a> ";
+                    echo " <a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Edit</a> ";
                     $queryString["action"] = "delete";
-                    echo " <a class=\"btn btn-outline-danger\" href=\"?" . http_build_query($queryString) . "\">Elimina</a> ";
+                    echo " <a class=\"btn btn-outline-danger\" href=\"?" . http_build_query($queryString) . "\">Delete</a> ";
 
-                    echo "<br><br><a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Indietro</a>";
+                    echo "<br><br><a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Back</a>";
             ?>
             </div>
         </div>

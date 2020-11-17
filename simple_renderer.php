@@ -228,7 +228,7 @@ class SimpleRenderer extends Renderer
         if (!isset($data))
         {
             echo "No Entity";
-            echo "<br><br><a href=\"?\">Indietro</a>";
+            echo "<br><br><a href=\"?\">Back</a>";
             return;
         }
 
@@ -293,19 +293,19 @@ class SimpleRenderer extends Renderer
             }
             $queryString["table"] = $data["entity"]->table;
             $queryString["action"] = "view";
-            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Visualizza</a></td>";
+            echo "<td><a href=\"?" . http_build_query($queryString) . "\">View</a></td>";
             $queryString["action"] = "duplicate";
-            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Duplica</a></td>";
+            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Duplicate</a></td>";
             $queryString["action"] = "edit";
-            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Modifica</a></td>";
+            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Edit</a></td>";
             $queryString["action"] = "delete";
-            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Elimina</a></td>";
+            echo "<td><a href=\"?" . http_build_query($queryString) . "\">Delete</a></td>";
             echo "</tr>";
         }
         echo "</table>";
 
-        echo "<br><br><a href=\"?action=new&table=".$data["entity"]->table."\">Nuovo</a>";
-        echo "<br><br><a href=\"?\">Indietro</a>";
+        echo "<br><br><a href=\"?action=new&table=".$data["entity"]->table."\">New</a>";
+        echo "<br><br><a href=\"?\">Back</a>";
     }
 
     function RenderViewSingle($data)
@@ -313,7 +313,7 @@ class SimpleRenderer extends Renderer
         if (!isset($data))
         {
             echo "No Entity";
-            echo "<br><br><a href=\"?\">Indietro</a>";
+            echo "<br><br><a href=\"?\">Back</a>";
             return;
         }
 
@@ -355,15 +355,15 @@ class SimpleRenderer extends Renderer
         echo "<br>";
         $queryString["table"] = $data["entity"]->table;
         $queryString["action"] = "new";
-        echo " <a href=\"?" . http_build_query($queryString) . "\">Nuovo</a> ";
+        echo " <a href=\"?" . http_build_query($queryString) . "\">New</a> ";
         $queryString["action"] = "duplicate";
-        echo " <a href=\"?" . http_build_query($queryString) . "\">Duplica</a> ";
+        echo " <a href=\"?" . http_build_query($queryString) . "\">Duplicate</a> ";
         $queryString["action"] = "edit";
-        echo " <a href=\"?" . http_build_query($queryString) . "\">Modifica</a> ";
+        echo " <a href=\"?" . http_build_query($queryString) . "\">Edit</a> ";
         $queryString["action"] = "delete";
-        echo " <a href=\"?" . http_build_query($queryString) . "\">Elimina</a> ";
+        echo " <a href=\"?" . http_build_query($queryString) . "\">Delete</a> ";
 
-        echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Indietro</a>";
+        echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Back</a>";
     }
 
     function RenderEditSingle($data, $request, $duplicate)
@@ -371,7 +371,7 @@ class SimpleRenderer extends Renderer
         if (!isset($data))
         {
             echo "No Entity";
-            echo "<br><br><a href=\"?\">Indietro</a>";
+            echo "<br><br><a href=\"?\">Back</a>";
             return;
         }
 
@@ -411,7 +411,7 @@ class SimpleRenderer extends Renderer
         echo "<br><br>";
         echo "<button type=\"submit\">Salva</button>";
         echo "</form>";
-        echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Indietro</a>";
+        echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Back</a>";
     }
 
     function RenderNew($data)
@@ -446,33 +446,33 @@ class SimpleRenderer extends Renderer
         echo "<br><br>";
         echo "<button type=\"submit\">Inserisci</button>";
         echo "</form>";
-        echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Indietro</a>";
+        echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Back</a>";
     }
 
     function OnDeleteEntity($data, $result)
     {
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        echo "<a href=\"?action=list&table=" . $data->table . "\">Back</a>";
     }
 
     function OnAddEntity($data, $result)
     {
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        echo "<a href=\"?action=list&table=" . $data->table . "\">Back</a>";
     }
 
     function OnUpdateEntity($data, $result)
     {
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        echo "<a href=\"?action=list&table=" . $data->table . "\">Back</a>";
     }
 
     function OnEntityNotFound($data)
     {
         echo "'" . $data->table . "' Not Found<br>";
-        echo "<a href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        echo "<a href=\"?action=list&table=" . $data->table . "\">Back</a>";
     }
 
     function OnActionNotFound($data)
     {
         echo "No '" . $data->action . "' Option<br>";
-        echo "<a href=\"?\">Indietro</a>";
+        echo "<a href=\"?\">Back</a>";
     }
 }

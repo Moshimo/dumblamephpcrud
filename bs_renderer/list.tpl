@@ -74,22 +74,22 @@
                 }
                 $queryString["table"] = $this->data["entity"]->table;
                 $queryString["action"] = "view";
-                echo "<td><a class=\"btn btn-outline-primary\" href=\"?" . http_build_query($queryString) . "\">Visualizza</a></td>";
+                echo "<td><a class=\"btn btn-outline-primary\" href=\"?" . http_build_query($queryString) . "\">View</a></td>";
                 $queryString["action"] = "duplicate";
-                echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Duplica</a></td>";
+                echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Duplicate</a></td>";
                 $queryString["action"] = "edit";
-                echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Modifica</a></td>";
+                echo "<td><a class=\"btn btn-outline-success\" href=\"?" . http_build_query($queryString) . "\">Edit</a></td>";
                 $queryString["action"] = "delete";
-                echo "<td><a class=\"btn btn-outline-danger\" href=\"?" . http_build_query($queryString) . "\">Elimina</a></td>";
+                echo "<td><a class=\"btn btn-outline-danger\" href=\"?" . http_build_query($queryString) . "\">Delete</a></td>";
                 echo "</tr>";
             }
             ?>
             </table>
 
             <?php
-            echo "<a class=\"btn btn-outline-primary\" href=\"?action=new&table=".$this->data["entity"]->table."\">Nuovo</a>";
+            echo "<a class=\"btn btn-outline-primary\" href=\"?action=new&table=".$this->data["entity"]->table."\">New</a>";
             echo "<br/><br/>";
-            echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Indietro</a>";
+            echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Back</a>";
             ?>
         </div>
   </div>

@@ -227,12 +227,12 @@ class BootstrapRenderer extends Renderer
     function OnEntityNotFound($data)
     {
         echo "'" . $data->table . "' Not Found<br>";
-        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $data->table . "\">Indietro</a>";
+        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $data->table . "\">Back</a>";
     }
 
     function OnActionNotFound($data)
     {
         echo "No '" . $data->action . "' Option<br>";
-        echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Indietro</a>";
+        echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Back</a>";
     }
 }

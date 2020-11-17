@@ -53,7 +53,7 @@
                         echo "<button class=\"btn btn-outline-primary\" type=\"submit\">Salva</button>";
                         echo "</form>";
                         echo "<br><br>";
-                        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Indietro</a>";
+                        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Back</a>";
                     }
                     else
                     {
@@ -87,7 +87,7 @@
                         echo "<button class=\"btn btn-outline-primary\" type=\"submit\">Inserisci</button>";
                         echo "</form>";
                         echo "<br><br>";
-                        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Indietro</a>";
+                        echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Back</a>";
                     }
                 ?>
               </div>
