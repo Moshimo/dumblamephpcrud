@@ -6,7 +6,7 @@ class BootstrapRenderer extends Renderer
     function GenerateIndex($items)
     {
         $this->items = $items;
-        include "bs_renderer/index.tpl";
+        include "renderers/bs_renderer/index.tpl";
     }
 
     /***************************** PRINTING COMPONENTS */
@@ -182,13 +182,13 @@ class BootstrapRenderer extends Renderer
     function RenderList($data)
     {
         $this->data = $data;
-        include "bs_renderer/list.tpl";
+        include "renderers/bs_renderer/list.tpl";
     }
 
     function RenderViewSingle($data)
     {
         $this->data = $data;
-        include "bs_renderer/view_single.tpl";
+        include "renderers/bs_renderer/view_single.tpl";
     }
 
     function RenderEditSingle($data, $request, $duplicate)
@@ -198,7 +198,7 @@ class BootstrapRenderer extends Renderer
         $this->duplicate = $duplicate;
         $this->action = "edit";
 
-        include "bs_renderer/edit.tpl";
+        include "renderers/bs_renderer/edit.tpl";
     }
 
     function RenderNew($data)
@@ -206,7 +206,7 @@ class BootstrapRenderer extends Renderer
         $this->data = $data;
         $this->action = "new";
 
-        include "bs_renderer/edit.tpl";
+        include "renderers/bs_renderer/edit.tpl";
     }
 
     function OnDeleteEntity($data, $result)
