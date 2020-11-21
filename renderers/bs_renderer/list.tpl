@@ -14,6 +14,7 @@
         <div class="col-md-10 offset-md-1">
             <?php if (count($this->data["rows"]) < 1): ?>
                 Empty table
+                <br/>
             <?php else: ?>
                 <table class="table table-hover">
                 <?php
@@ -88,13 +89,12 @@
                 }
                 ?>
                 </table>
-
-                <?php
-                echo "<a class=\"btn btn-outline-primary\" href=\"?action=new&table=".$this->data["entity"]->table."\">New</a>";
-                echo "<br/><br/>";
-                echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Back</a>";
-                ?>
             <?php endif; ?>
+            <?php
+            echo "<a class=\"btn btn-outline-primary\" href=\"?action=new&table=".$this->data["entity"]->table."\">New</a>";
+            echo "<br/><br/>";
+            echo "<a class=\"btn btn-outline-secondary\" href=\"?\">Back</a>";
+            ?>
         </div>
   </div>
 
