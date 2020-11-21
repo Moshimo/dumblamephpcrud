@@ -1,5 +1,7 @@
 # Dumb Lame PHP CRUD
 
+Creates CRUD masks without generating any additional php files. Just define your table entities as objects and you are ready to go.
+
 ![](sneakpeek.gif)
 
 This is a (forever WIP) dead simple, lightweight and extensible PHP CRUD system for relational databases (MySQL provided, through PDO). You are only required to set the DB connection string and to provide the tables definitions that you want to enable CRUD operations on.
