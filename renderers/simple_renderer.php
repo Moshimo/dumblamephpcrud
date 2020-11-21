@@ -409,7 +409,7 @@ class SimpleRenderer extends Renderer
             }
         }
         echo "<br><br>";
-        echo "<button type=\"submit\">Salva</button>";
+        echo "<button type=\"submit\">Save</button>";
         echo "</form>";
         echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Back</a>";
     }
@@ -444,7 +444,7 @@ class SimpleRenderer extends Renderer
             }
         }
         echo "<br><br>";
-        echo "<button type=\"submit\">Inserisci</button>";
+        echo "<button type=\"submit\">Insert</button>";
         echo "</form>";
         echo "<br><br><a href=\"?action=list&table=" . $data["entity"]->table . "\">Back</a>";
     }

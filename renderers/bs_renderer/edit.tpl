@@ -50,7 +50,7 @@
                                 break;
                             }
                         }
-                        echo "<button class=\"btn btn-outline-primary\" type=\"submit\">Salva</button>";
+                        echo "<button class=\"btn btn-outline-primary\" type=\"submit\">Save</button>";
                         echo "</form>";
                         echo "<br><br>";
                         echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Back</a>";
@@ -84,7 +84,7 @@
                                 break;
                             }
                         }
-                        echo "<button class=\"btn btn-outline-primary\" type=\"submit\">Inserisci</button>";
+                        echo "<button class=\"btn btn-outline-primary\" type=\"submit\">Insert</button>";
                         echo "</form>";
                         echo "<br><br>";
                         echo "<a class=\"btn btn-outline-secondary\" href=\"?action=list&table=" . $this->data["entity"]->table . "\">Back</a>";
