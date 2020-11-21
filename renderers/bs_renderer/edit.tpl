@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="renderers/bs_renderer/css/bootstrap.min.css">
-  <title>Indice</title>
+  <title><?= $this->data["entity"]->title ?></title>
 </head>
 
 <body>
