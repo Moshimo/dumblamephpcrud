@@ -1,4 +1,7 @@
 # Dumb Lame PHP CRUD
+
+![](sneakpeek.gif)
+
 This is a (forever WIP) dead simple, lightweight and extensible PHP CRUD system for relational databases (MySQL provided, through PDO). You are only required to set the DB connection string and to provide the tables definitions that you want to enable CRUD operations on.
 
 The project is flawed and wrong on so many levels... but it actually does the job. If you need something well designed and to be used in production, turn around and walk away... Should you need this to quickly prototype and/or to have a web interface for your tables (again, not in production!) you are in the right place.
