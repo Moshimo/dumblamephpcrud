@@ -34,6 +34,32 @@ function GetFKForReadEntity($obj, $field, $fks, &$cachedFK)
     }
 }
 
+function GetFKForListEntity($obj, $field, $fks)
+{
+    global $db;
+        
+    $separator = "/";
+    $separator2 = " AND ";
+    $fkIds = array();
+    foreach ($fks as $fk) {
+        if (in_array($field, $fk->keyGroup))
+        {
+            $cacheKey = "";
+            $whereCondition = "";
+            for ($i=0; $i < count($fk->keyGroup); $i++) { 
+                $cacheKey .= $obj->{$fk->keyGroup[$i]} . $separator;
+                $whereCondition .= "`" . $fk->theirIds[$i] . "` = " . $obj->{$fk->keyGroup[$i]} . $separator2;
+                $fkIds[$fk->keyGroup[$i]] = $obj->{$fk->keyGroup[$i]};
+            }
+            $whereCondition = substr($whereCondition, 0 , strlen($whereCondition) - strlen($separator2));
+            $cacheKey = substr($cacheKey, 0 , strlen($cacheKey) - strlen($separator));
+            
+            $resSet = $db->RetrievingQuery("SELECT * FROM `" . $fk->objResolve->table . "` WHERE $whereCondition", array(), false);
+            return array("fk_obj" => $resSet, "fk_ids" => $fkIds, "fk_label" => $fk->label);
+        }
+    }
+}
+
 function GetFKForEditEntity($obj, $fieldKey, $field)
 {
     global $db;
@@ -206,8 +232,8 @@ function GetListData($obj)
 
             else if ($val["type"] == DataType::FK || $val["type"] == DataType::KEYFK)
             {
-                $fk = GetFKForReadEntity($res, $key, $obj->fk, $cacheKey);
-                $columns[$key] = array("field" => $val, "value" => $fk); //$fk["fk_obj"]->{$fk["fk_label"]}, "fk"
+                $fk = GetFKForListEntity($res, $key, $obj->fk, $cacheKey);
+                $columns[$key] = array("field" => $val, "value" => $fk);
             }
             else
             {
